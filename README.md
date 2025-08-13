@@ -39,30 +39,83 @@ Blue_edge_index/
 ### 系統需求
 
 - Python 3.8 或以上版本
-- 作業系統: Windows, macOS, Linux
+- 作業系統: Windows 10/11, macOS 10.14+, Linux (Ubuntu/Debian/CentOS/Fedora)
+- GUI支援: tkinter (通常隨Python一起安裝)
 
-### 自動安裝 (推薦)
+### 🖥️ 各平台安裝指南
 
-1. **複製專案到本機**
+#### macOS
+```bash
+# 1. 下載專案
+git clone <repository-url>
+cd Blue_edge_index
+
+# 2. 執行自動設定
+python setup_env.py
+
+# 3. 啟動虛擬環境並執行
+source venv/bin/activate
+python main.py
+```
+
+#### Windows
+```batch
+REM 1. 下載專案
+git clone <repository-url>
+cd Blue_edge_index
+
+REM 2. 執行Windows設定腳本
+setup_windows.bat
+
+REM 3. 啟動虛擬環境並執行
+venv\Scripts\activate.bat
+python main.py
+```
+
+#### Linux (Ubuntu/Debian)
+```bash
+# 1. 下載專案
+git clone <repository-url>
+cd Blue_edge_index
+
+# 2. 執行Linux設定腳本
+chmod +x setup_linux.sh
+./setup_linux.sh
+
+# 3. 啟動虛擬環境並執行
+source venv/bin/activate
+python main.py
+```
+
+### 🔧 手動安裝（所有平台通用）
+
+如果自動安裝腳本無法運作，可以使用手動安裝：
+
+1. **確認Python版本**
    ```bash
-   cd /path/to/your/project
+   python --version  # 或 python3 --version
    ```
 
-2. **執行自動環境設定**
+2. **建立虛擬環境**
    ```bash
-   python setup_env.py
+   python -m venv venv  # Windows/macOS/Linux
    ```
 
 3. **啟動虛擬環境**
    ```bash
+   # Windows
+   venv\Scripts\activate
+   
    # macOS/Linux
    source venv/bin/activate
-   
-   # Windows
-   venv\\Scripts\\activate
    ```
 
-4. **執行應用程式**
+4. **安裝依賴套件**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **執行應用程式**
    ```bash
    python main.py
    ```
@@ -198,6 +251,55 @@ Blue Edge Index 是一個用於分析數據分佈特性的指標：
 2. 所有依賴套件是否正確安裝
 3. Excel檔案格式是否正確
 
+## 📦 程式打包與分發
+
+### 打包成執行檔
+
+本專案支援多種打包方式，讓您可以將程式打包成獨立的執行檔：
+
+#### 自動打包（推薦）
+```bash
+# 安裝打包工具
+pip install pyinstaller cx_freeze
+
+# 執行自動打包
+python build.py --clean
+
+# 或指定特定工具
+python build.py --tool pyinstaller
+python build.py --tool cx_freeze
+python build.py --tool portable
+```
+
+#### 手動打包
+```bash
+# 使用 PyInstaller
+python build_config.py  # 生成配置檔案
+pyinstaller BlueEdgeAnalyzer.spec
+
+# 使用 cx_Freeze
+python setup_cx_freeze.py build
+```
+
+### 跨平台相容性
+
+✅ **完全支援的平台**：
+- **Windows 10/11**: Python 3.8+ (tkinter 內建)
+- **macOS 10.14+**: Python 3.8+ + python-tk (透過 Homebrew)
+- **Linux**: Ubuntu/Debian/CentOS/Fedora + python3-tk
+
+✅ **核心依賴套件**（跨平台）：
+- pandas >= 2.0.0
+- numpy >= 1.24.0  
+- openpyxl >= 3.1.0
+- tkinter (Python 內建)
+
+### 部署建議
+
+1. **原始碼分發**：提供完整專案資料夾 + 平台專用安裝腳本
+2. **執行檔分發**：使用 PyInstaller 打包成單一執行檔
+3. **可攜式版本**：包含 Python 環境的完整套件
+
 ## 📝 版本歷史
 
 - **v1.0.0** (當前版本)
@@ -205,6 +307,8 @@ Blue Edge Index 是一個用於分析數據分佈特性的指標：
   - 基本Excel處理功能
   - Blue Edge Index計算
   - GUI使用者介面
+  - 跨平台支援 (Windows/macOS/Linux)
+  - 多種打包選項
 
 ## 📄 授權條款
 
