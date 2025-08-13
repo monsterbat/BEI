@@ -34,11 +34,41 @@ def setup_virtual_environment():
     """設定虛擬環境"""
     print("🚀 開始設定Blue Edge Analyzer開發環境")
     
-    # 確認Python版本
-    python_version = sys.version_info
-    print(f"Python版本: {python_version.major}.{python_version.minor}.{python_version.micro}")
+    # 檢查並使用最新的Python版本
+    python_candidates = [
+        "/opt/homebrew/bin/python3.13",  # macOS Homebrew Python 3.13
+        "/usr/local/bin/python3.13",    # 備用路徑
+        "python3.13",                   # 系統PATH中的Python 3.13
+        "python3",                      # 系統預設Python 3
+        "python"                        # 最後備用
+    ]
     
-    if python_version < (3, 8):
+    selected_python = None
+    for python_cmd in python_candidates:
+        try:
+            result = subprocess.run([python_cmd, "--version"], 
+                                  capture_output=True, text=True, check=True)
+            version_info = result.stdout.strip()
+            print(f"找到Python: {python_cmd} - {version_info}")
+            selected_python = python_cmd
+            break
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            continue
+    
+    if not selected_python:
+        print("❌ 錯誤: 找不到可用的Python版本")
+        return False
+    
+    # 確認Python版本
+    result = subprocess.run([selected_python, "--version"], 
+                          capture_output=True, text=True, check=True)
+    version_str = result.stdout.strip().split()[-1]
+    version_parts = version_str.split('.')
+    major, minor = int(version_parts[0]), int(version_parts[1])
+    
+    print(f"✅ 選用Python版本: {version_str}")
+    
+    if (major, minor) < (3, 8):
         print("❌ 錯誤: 需要Python 3.8或以上版本")
         return False
     
@@ -52,7 +82,7 @@ def setup_virtual_environment():
     # 建立虛擬環境
     if not venv_path.exists():
         print("\n📦 建立虛擬環境...")
-        if not run_command(f"python -m venv {venv_path}", "建立虛擬環境"):
+        if not run_command(f"{selected_python} -m venv {venv_path}", "建立虛擬環境"):
             return False
     else:
         print("\n✅ 虛擬環境已存在")
