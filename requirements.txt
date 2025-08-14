@@ -1,13 +1,17 @@
 # Blue Edge Index Analyzer 依賴套件
-# 資料處理和分析
+# 核心功能必需套件
 pandas>=2.0.0
 numpy>=1.24.0
 openpyxl>=3.1.0  # 用於讀取Excel檔案
 
-# GUI框架 (tkinter是Python內建的，但列出來做參考)
-# tkinter  # 內建套件，不需要安裝
+# GUI框架 (tkinter是Python內建的，通常不需要額外安裝)
+# tkinter  # 內建套件
 
 # 開發和測試工具 (可選)
 pytest>=7.0.0  # 單元測試
 black>=23.0.0  # 程式碼格式化
 flake8>=6.0.0  # 程式碼檢查
+
+# 打包工具 (可選，僅在需要打包時安裝)
+# pyinstaller>=5.0  # 執行檔打包
+# cx-freeze>=6.0    # 跨平台打包

@@ -2,6 +2,12 @@
 
 一個專業的Python應用程式，用於分析Excel數據並計算Blue Edge Index。
 
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](README.md)
+
+> 🔬 專業的數據分析工具，提供直觀的GUI介面和強大的跨平台支援
+
 ## 📋 功能特色
 
 - 🔍 **Excel檔案處理**: 支援讀取和解析Excel檔案(.xlsx, .xls)
@@ -27,10 +33,26 @@ Blue_edge_index/
 │   └── utils/                   # 工具模組
 │       ├── __init__.py
 │       └── validators.py        # 資料驗證工具
+├── tests/                       # 單元測試
+│   ├── __init__.py
+│   ├── test_excel_processor.py
+│   └── test_blue_edge_calculator.py
+├── examples/                    # 範例數據和說明
+│   ├── sample_data/             # 測試用Excel檔案
+│   └── README.md
+├── data_samples/                # 測試數據生成工具
+│   ├── test_data_generator.py
+│   ├── data_generator_config.py
+│   └── README.md
 ├── main.py                      # 應用程式入口點
 ├── requirements.txt             # Python依賴套件
 ├── pyproject.toml              # 專案設定檔
-├── setup_env.py                # 環境設定腳本
+├── setup_env.py                # macOS環境設定腳本
+├── setup_windows.bat           # Windows環境設定腳本
+├── setup_linux.sh              # Linux環境設定腳本
+├── build.py                     # 自動打包工具
+├── build_config.py             # 打包配置檔案
+├── Makefile                     # 開發工具命令
 └── README.md                   # 專案說明文件
 ```
 
@@ -314,9 +336,55 @@ python setup_cx_freeze.py build
 
 本專案採用 MIT 授權條款。
 
+## 🚀 快速開始
+
+### 從GitHub下載
+
+```bash
+# 複製專案
+git clone https://github.com/yourusername/Blue_edge_index.git
+cd Blue_edge_index
+
+# 選擇對應平台的安裝方式
+# Windows: 執行 setup_windows.bat
+# macOS: 執行 python setup_env.py
+# Linux: 執行 ./setup_linux.sh
+```
+
+### 立即體驗
+
+1. 下載並設定環境（如上）
+2. 載入 `examples/sample_data/` 中的範例數據
+3. 開始分析您的Excel數據！
+
+## 📁 目錄說明
+
+- **`blue_edge_analyzer/`**: 核心程式碼
+- **`examples/`**: 範例數據和使用說明
+- **`data_samples/`**: 測試數據生成工具
+- **`tests/`**: 單元測試檔案
+
 ## 👥 貢獻指南
 
 歡迎提交Issues和Pull Requests來改善這個專案！
+
+### 如何貢獻
+
+1. Fork 這個專案
+2. 建立您的功能分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交您的變更 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 開啟 Pull Request
+
+### 回報問題
+
+如果您發現任何問題，請在 [Issues](https://github.com/yourusername/Blue_edge_index/issues) 頁面提交詳細的問題報告。
+
+## 📞 聯絡資訊
+
+- 專案首頁: [https://github.com/yourusername/Blue_edge_index](https://github.com/yourusername/Blue_edge_index)
+- 問題回報: [Issues](https://github.com/yourusername/Blue_edge_index/issues)
+- 功能請求: [Discussions](https://github.com/yourusername/Blue_edge_index/discussions)
 
 ---
 

@@ -185,3 +185,4 @@ if __name__ == "__main__":
     print("\n打包命令:")
     print("PyInstaller: pyinstaller BlueEdgeAnalyzer.spec")
     print("cx_Freeze:   python setup_cx_freeze.py build")
+

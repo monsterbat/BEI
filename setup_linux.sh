@@ -108,3 +108,4 @@ echo "1. 啟動虛擬環境: source venv/bin/activate"
 echo "2. 執行程式: python main.py"
 echo "3. 退出虛擬環境: deactivate"
 echo ""
+

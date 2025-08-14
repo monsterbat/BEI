@@ -187,14 +187,41 @@ $RECYCLE.BIN/
 # PyCharm
 .idea/
 
-# 測試檔案和範例資料
-test_data/
-sample_data/
+# 排除大型Excel檔案（超過GitHub 100MB限制）
+# 但保留小型範例檔案
 *.xlsx
 *.xls
-!example.xlsx  # 如果有範例檔案可以保留
+# 保留範例檔案
+!examples/sample_data/sample_edge_decay.xlsx
 
 # 應用程式特定檔案
 logs/
 output/
 results/
+
+# 臨時測試檔案（已移動到data_samples/目錄）
+test_sample.xlsx
+example_usage.py
+testdata/
+
+# 臨時檔案和快取
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# 編輯器設定檔案
+.vscode/settings.json
+.idea/workspace.xml
+
+# 建置產出
+dist/
+build/
+*.spec
+setup_cx_freeze.py
+BlueEdgeAnalyzer_Portable/
+
+# 大型測試檔案（超過100MB）
+*.xlsx
+!examples/*.xlsx
