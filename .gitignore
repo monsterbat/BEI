@@ -187,12 +187,18 @@ $RECYCLE.BIN/
 # PyCharm
 .idea/
 
-# 排除大型Excel檔案（超過GitHub 100MB限制）
-# 但保留小型範例檔案
+# 排除大型檔案（超過GitHub 100MB限制）
+# 排除Excel檔案，但保留小型範例檔案
 *.xlsx
 *.xls
-# 保留範例檔案
 !examples/sample_data/sample_edge_decay.xlsx
+
+# 排除大型圖片檔案
+*.png
+*.jpg
+*.jpeg
+# 但保留小型圖示檔案（如果有的話）
+!assets/icons/*.png
 
 # 應用程式特定檔案
 logs/

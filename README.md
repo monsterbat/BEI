@@ -21,39 +21,36 @@
 
 ```
 Blue_edge_index/
-├── blue_edge_analyzer/          # 主要應用程式套件
-│   ├── __init__.py
+├── blue_edge_analyzer/          # 🔧 主要應用程式套件
 │   ├── core/                    # 核心功能模組
-│   │   ├── __init__.py
 │   │   ├── excel_processor.py   # Excel檔案處理
 │   │   └── blue_edge_calculator.py # Blue Edge Index計算
 │   ├── gui/                     # 使用者介面
-│   │   ├── __init__.py
 │   │   └── main_window.py       # 主視窗
 │   └── utils/                   # 工具模組
-│       ├── __init__.py
 │       └── validators.py        # 資料驗證工具
-├── tests/                       # 單元測試
-│   ├── __init__.py
-│   ├── test_excel_processor.py
-│   └── test_blue_edge_calculator.py
-├── examples/                    # 範例數據和說明
+├── examples/                    # 📊 範例數據和說明
 │   ├── sample_data/             # 測試用Excel檔案
 │   └── README.md
-├── data_samples/                # 測試數據生成工具
+├── data_samples/                # 🧪 測試數據生成工具
 │   ├── test_data_generator.py
-│   ├── data_generator_config.py
 │   └── README.md
-├── main.py                      # 應用程式入口點
-├── requirements.txt             # Python依賴套件
-├── pyproject.toml              # 專案設定檔
-├── setup_env.py                # macOS環境設定腳本
-├── setup_windows.bat           # Windows環境設定腳本
-├── setup_linux.sh              # Linux環境設定腳本
-├── build.py                     # 自動打包工具
-├── build_config.py             # 打包配置檔案
-├── Makefile                     # 開發工具命令
-└── README.md                   # 專案說明文件
+├── tests/                       # ✅ 單元測試
+├── scripts/                     # 🚀 安裝和開發腳本
+│   ├── setup_env.py            # macOS環境設定
+│   ├── setup_windows.bat       # Windows環境設定
+│   ├── setup_linux.sh          # Linux環境設定
+│   └── Makefile                # 開發工具命令
+├── build_tools/                 # 📦 程式打包工具
+│   ├── build.py                # 自動打包工具
+│   └── build_config.py         # 打包配置檔案
+├── docs/                        # 📚 專案文件和設定
+│   └── pyproject.toml          # 專案設定檔
+├── main.py                      # 🎯 應用程式入口點
+├── run.py                       # 🚀 快速啟動器
+├── requirements.txt             # 📋 Python依賴套件
+├── LICENSE                      # 📄 授權條款
+└── README.md                   # 📖 專案說明文件
 ```
 
 ## 🚀 快速開始
@@ -66,47 +63,35 @@ Blue_edge_index/
 
 ### 🖥️ 各平台安裝指南
 
-#### macOS
+#### 🚀 超簡單方式（推薦）
 ```bash
 # 1. 下載專案
 git clone <repository-url>
 cd Blue_edge_index
 
-# 2. 執行自動設定
-python setup_env.py
-
-# 3. 啟動虛擬環境並執行
-source venv/bin/activate
-python main.py
+# 2. 一鍵安裝和啟動
+python run.py
 ```
 
-#### Windows
+#### ⚙️ 手動安裝方式
+
+**macOS**
+```bash
+python scripts/setup_env.py
+python run.py
+```
+
+**Windows**
 ```batch
-REM 1. 下載專案
-git clone <repository-url>
-cd Blue_edge_index
-
-REM 2. 執行Windows設定腳本
-setup_windows.bat
-
-REM 3. 啟動虛擬環境並執行
-venv\Scripts\activate.bat
-python main.py
+scripts\setup_windows.bat
+python run.py
 ```
 
-#### Linux (Ubuntu/Debian)
+**Linux**
 ```bash
-# 1. 下載專案
-git clone <repository-url>
-cd Blue_edge_index
-
-# 2. 執行Linux設定腳本
-chmod +x setup_linux.sh
-./setup_linux.sh
-
-# 3. 啟動虛擬環境並執行
-source venv/bin/activate
-python main.py
+chmod +x scripts/setup_linux.sh
+./scripts/setup_linux.sh
+python run.py
 ```
 
 ### 🔧 手動安裝（所有平台通用）
@@ -346,9 +331,9 @@ git clone https://github.com/yourusername/Blue_edge_index.git
 cd Blue_edge_index
 
 # 選擇對應平台的安裝方式
-# Windows: 執行 setup_windows.bat
-# macOS: 執行 python setup_env.py
-# Linux: 執行 ./setup_linux.sh
+# Windows: 執行 scripts\setup_windows.bat
+# macOS: 執行 python scripts/setup_env.py
+# Linux: 執行 ./scripts/setup_linux.sh
 ```
 
 ### 立即體驗
