@@ -2,6 +2,10 @@
 
 一個專業的Python應用程式，用於分析Excel數據並計算Blue Edge Index。
 
+## 📅 最後更新
+- 專案已成功上傳至 GitHub
+- 版本：v1.0.0
+
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](README.md)
